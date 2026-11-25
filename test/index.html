@@ -59,6 +59,8 @@
   .adim.tamam a.btn { background: #2c3a2f; color: var(--soluk); }
   a.btn.buyuk { font-size: 26px; padding: 16px 14px 10px; }
   .gizli { display: none !important; }
+  .uyari { background: #3a2a12; border: 3px solid var(--sari); border-radius: 16px; padding: 12px; margin: 0 0 16px; text-align: center; font-weight: 700; font-size: 15px; line-height: 1.4; }
+  .uyari a.btn { margin-top: 10px; }
   .diger { text-align: center; margin: 22px 0 8px; color: var(--soluk); font-size: 15px; }
   .diger a { color: var(--sari); font-weight: 800; margin: 0 8px; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
   .resimler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 4px 0; }
@@ -84,10 +86,14 @@
     <div class="serit"><span>ANDROID</span></div>
     <p class="not" data-tr="Google test için iki adım istiyor. Sırayla bas, telefonundaki Google hesabıyla gir."
        data-en="Google needs two steps for testing. Tap them in order, signed in with your phone's Google account.">Google test için iki adım istiyor. Sırayla bas, telefonundaki Google hesabıyla gir.</p>
+    <div class="uyari gizli" id="uygIci">
+      <span data-tr="Instagram'ın içinden açtın: burada Google girişi çalışmaz. Butonlar Chrome'da açılacak." data-en="You opened this inside Instagram: Google sign-in doesn't work here. The buttons will open in Chrome.">Instagram'ın içinden açtın: burada Google girişi çalışmaz. Butonlar Chrome'da açılacak.</span>
+      <a class="btn ikinci" id="chromeAc" href="#" data-tr="Bu sayfayı Chrome'da aç" data-en="Open this page in Chrome">Bu sayfayı Chrome'da aç</a>
+    </div>
     <div class="adim" id="a1">
       <div class="no"><span>1</span></div>
       <div class="ic">
-        <div class="baslik" data-tr="Test grubuna katıl" data-en="Join the test group">Test grubuna katıl</div>
+        <div class="baslik" data-tr="Test grubuna katıl („Oturum açın” çıkarsa Google hesabınla gir)" data-en="Join the test group (sign in with Google if asked)">Test grubuna katıl („Oturum açın” çıkarsa Google hesabınla gir)</div>
         <a class="btn" href="https://groups.google.com/g/dedes-village-test" target="_blank" rel="noopener" data-adim="a1" data-tr="Gruba katıl" data-en="Join the group">Gruba katıl</a>
       </div>
     </div>
@@ -166,6 +172,17 @@
     document.querySelectorAll("#diger a").forEach(function (a) { a.classList.toggle("gizli", a.getAttribute("data-goster") === id); });
   }
   goster(cihaz);
+  // Instagram/Facebook/TikTok içi tarayıcıda Google oturumu yok → grup "izniniz yok" der. Android'de butonları Chrome'da aç.
+  var uygIci = /Instagram|FBAN|FBAV|FB_IAB|musical_ly|Bytedance|TikTok|Snapchat|Twitter|; wv\)/i.test(ua);
+  function chromeLink(url) {
+    var u = url.replace(/^https:\/\//, "");
+    return "intent://" + u + "#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" + encodeURIComponent(url) + ";end";
+  }
+  if (android && uygIci) {
+    document.getElementById("uygIci").classList.remove("gizli");
+    document.getElementById("chromeAc").href = chromeLink(location.href.split("#")[0] + "#android");
+    ["a1", "a2"].forEach(function (k) { var a = document.querySelector('a[data-adim="' + k + '"]'); a.href = chromeLink(a.href); a.removeAttribute("target"); });
+  }
   document.querySelectorAll("#diger a").forEach(function (a) {
     a.addEventListener("click", function (e) { e.preventDefault(); goster(a.getAttribute("data-goster")); window.scrollTo({ top: document.getElementById(a.getAttribute("data-goster")).offsetTop - 12, behavior: "smooth" }); });
   });
