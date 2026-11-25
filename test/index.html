@@ -190,7 +190,7 @@
   }
   if (android && uygIci) {
     document.getElementById("uygIci").classList.remove("gizli");
-    document.getElementById("chromeAc").href = chromeLink(location.href.split("#")[0] + "#android");
+    document.getElementById("chromeAc").href = chromeLink(location.href.split("#")[0]);
     ["a1", "a2"].forEach(function (k) { var a = document.querySelector('a[data-adim="' + k + '"]'); a.href = chromeLink(a.href); a.removeAttribute("target"); });
   }
   document.querySelectorAll("#diger a").forEach(function (a) {
