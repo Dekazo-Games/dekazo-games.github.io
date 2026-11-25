@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dede's Village — Teste katıl</title>
+<meta name="description" content="Dede's Village'ı herkesten önce dene: iPhone, Android ve bilgisayar. Ücretsiz erken erişim testi.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dede's Village — Teste katıl">
+<meta property="og:description" content="Karadeniz köyünde araba tamiri ve köy hayatı. Herkesten önce dene, ücretsiz.">
+<meta property="og:image" content="https://dekazo-games.github.io/img/kapak.jpg">
+<meta property="og:url" content="https://dekazo-games.github.io/test/">
+<meta name="theme-color" content="#10151c">
+<link rel="icon" href="../img/simge.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #10151c; --krem: #fbf3df; --soluk: #c8c1ad; --koyu: #2a1608;
+    --turuncu: #e8772e; --sari: #f6c443; --yesil: #3f7d57; --yesil2: #4f9a6b; --kart: #1b2430; --cizgi: #2b3644;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--krem); font-family: 'Baloo 2', system-ui, sans-serif; overflow-x: hidden; }
+  body { padding: calc(18px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom));
+         background: radial-gradient(1200px 500px at 50% -120px, #2a3a2c 0%, transparent 70%), var(--bg); }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  .logo { margin: 18px 6px 8px; transform: rotate(-3deg); background: var(--turuncu); border: 7px solid var(--krem); border-radius: 26px;
+          padding: 14px 10px 18px; text-align: center; box-shadow: 0 10px 0 #0006, 0 18px 40px #000a; }
+  .logo .k1, .logo .k2 { font-family: 'Luckiest Guy', sans-serif; display: block; line-height: .95; letter-spacing: 1px;
+          -webkit-text-stroke: 3px var(--koyu); paint-order: stroke fill; text-shadow: 0 5px 0 var(--koyu); }
+  .logo .k1 { color: var(--sari); font-size: clamp(34px, 10vw, 54px); }
+  .logo .k2 { color: var(--krem); font-size: clamp(56px, 17vw, 92px); -webkit-text-stroke-width: 4px; }
+  .serit { display: block; width: fit-content; margin: -42px auto 14px; transform: rotate(-2.5deg); background: var(--yesil); border: 5px solid var(--krem);
+           border-radius: 16px; padding: 4px 26px 2px; box-shadow: 0 6px 0 #0006; }
+  .serit span { font-family: 'Luckiest Guy', sans-serif; font-size: 28px; color: var(--krem); letter-spacing: 1px;
+           -webkit-text-stroke: 2.5px var(--koyu); paint-order: stroke fill; text-shadow: 0 4px 0 var(--koyu); }
+  .serit.sag { transform: rotate(2deg); }
+  .rozet { display: block; width: fit-content; margin: 22px auto 0; background: var(--sari); color: var(--koyu); font-family: 'Luckiest Guy', sans-serif;
+           font-size: 18px; letter-spacing: 1px; padding: 6px 16px 3px; border-radius: 999px; border: 3px solid var(--koyu); transform: rotate(2deg); box-shadow: 0 4px 0 #0007; }
+  p.giris { font-size: 18px; line-height: 1.5; margin: 16px 2px 6px; text-align: center; }
+  .foto { margin: 18px 10px 4px; transform: rotate(1.5deg); border: 6px solid var(--krem); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 0 #0006, 0 16px 30px #0009; }
+  .foto img { width: 100%; display: block; aspect-ratio: 1024/500; object-fit: cover; }
+  .kart { background: var(--kart); border: 3px solid var(--cizgi); border-radius: 22px; padding: 18px 16px 10px; margin: 50px 0 8px; box-shadow: 0 6px 0 #0005; }
+  .kart .not { color: var(--soluk); font-size: 15px; margin: 0 0 14px; line-height: 1.45; text-align: center; }
+  .adim { display: flex; gap: 12px; align-items: center; margin: 0 0 14px; }
+  .no { flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--sari); border: 3px solid var(--koyu); color: var(--koyu);
+        font-family: 'Luckiest Guy', sans-serif; font-size: 22px; display: grid; place-items: center; padding-top: 3px; box-shadow: 0 3px 0 #0007; }
+  .adim.tamam .no { background: var(--yesil2); color: var(--krem); }
+  .adim.tamam .no::after { content: "\2713"; font-family: 'Baloo 2', sans-serif; font-weight: 800; }
+  .adim.tamam .no span { display: none; }
+  .adim .ic { flex: 1; min-width: 0; }
+  .adim .baslik { font-weight: 700; font-size: 15px; margin: 0 0 6px; color: var(--soluk); }
+  a.btn { display: block; text-align: center; text-decoration: none; font-family: 'Luckiest Guy', sans-serif; letter-spacing: .5px; font-size: 22px;
+          color: var(--krem); background: var(--turuncu); border: 3px solid var(--koyu); border-radius: 16px; padding: 12px 14px 8px;
+          -webkit-text-stroke: 1.5px var(--koyu); paint-order: stroke fill; text-shadow: 0 3px 0 var(--koyu); box-shadow: 0 6px 0 var(--koyu); }
+  a.btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--koyu); }
+  a.btn.ikinci { background: #3a4757; font-size: 19px; }
+  .adim.tamam a.btn { background: #2c3a2f; color: var(--soluk); }
+  a.btn.buyuk { font-size: 26px; padding: 16px 14px 10px; }
+  .gizli { display: none !important; }
+  .diger { text-align: center; margin: 22px 0 8px; color: var(--soluk); font-size: 15px; }
+  .diger a { color: var(--sari); font-weight: 800; margin: 0 8px; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
+  .resimler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 4px 0; }
+  .resimler img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 10px; border: 4px solid var(--krem); box-shadow: 0 5px 0 #0006; }
+  .resimler img:nth-child(1) { transform: rotate(-3deg); } .resimler img:nth-child(2) { transform: rotate(2deg) translateY(6px); } .resimler img:nth-child(3) { transform: rotate(-1.5deg); }
+  footer { text-align: center; color: #8b93a0; font-size: 14px; margin-top: 30px; line-height: 1.7; }
+  footer a { color: var(--sari); }
+  .dil { position: absolute; top: calc(10px + env(safe-area-inset-top)); right: 12px; z-index: 2; }
+  .dil button { background: var(--kart); color: var(--krem); border: 2px solid var(--cizgi); border-radius: 999px; font: 800 13px 'Baloo 2', sans-serif; padding: 4px 12px; }
+</style>
+</head>
+<body>
+<div class="dil"><button id="dilBtn" type="button">EN</button></div>
+<div class="wrap">
+  <div class="logo"><span class="k1">DEDE'S</span><span class="k2">VILLAGE</span></div>
+  <span class="rozet" data-tr="ÜCRETSİZ ERKEN TEST" data-en="FREE EARLY TEST">ÜCRETSİZ ERKEN TEST</span>
+  <p class="giris" data-tr="Karadeniz'de gerçek bir köy: dedenden kalan arabayı topla, traktörü çalıştır, fındık topla, kahvede okey oyna. Herkesten önce dene!"
+     data-en="A real village on the Black Sea coast: rebuild grandpa's car, start the old tractor, pick hazelnuts, play okey at the café. Try it before everyone else!">Karadeniz'de gerçek bir köy: dedenden kalan arabayı topla, traktörü çalıştır, fındık topla, kahvede okey oyna. Herkesten önce dene!</p>
+  <div class="foto"><img src="../img/kapak.jpg" alt="Dede's Village"></div>
+
+  <!-- ANDROID -->
+  <section class="kart" id="android">
+    <div class="serit"><span>ANDROID</span></div>
+    <p class="not" data-tr="Google test için iki adım istiyor. Sırayla bas, telefonundaki Google hesabıyla gir."
+       data-en="Google needs two steps for testing. Tap them in order, signed in with your phone's Google account.">Google test için iki adım istiyor. Sırayla bas, telefonundaki Google hesabıyla gir.</p>
+    <div class="adim" id="a1">
+      <div class="no"><span>1</span></div>
+      <div class="ic">
+        <div class="baslik" data-tr="Test grubuna katıl" data-en="Join the test group">Test grubuna katıl</div>
+        <a class="btn" href="https://groups.google.com/g/dedes-village-test" target="_blank" rel="noopener" data-adim="a1" data-tr="Gruba katıl" data-en="Join the group">Gruba katıl</a>
+      </div>
+    </div>
+    <div class="adim" id="a2">
+      <div class="no"><span>2</span></div>
+      <div class="ic">
+        <div class="baslik" data-tr="Test kullanıcısı ol ve indir" data-en="Become a tester and download">Test kullanıcısı ol ve indir</div>
+        <a class="btn" href="https://play.google.com/apps/testing/com.zbrgames.dedesvillage" target="_blank" rel="noopener" data-adim="a2" data-tr="Teste katıl" data-en="Join the test">Teste katıl</a>
+      </div>
+    </div>
+    <div class="adim" id="a3">
+      <div class="no"><span>3</span></div>
+      <div class="ic">
+        <div class="baslik" data-tr="Play Store'dan yükle" data-en="Install from Play Store">Play Store'dan yükle</div>
+        <a class="btn ikinci" href="https://play.google.com/store/apps/details?id=com.zbrgames.dedesvillage" target="_blank" rel="noopener" data-adim="a3" data-tr="Play Store'da aç" data-en="Open in Play Store">Play Store'da aç</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- iPHONE -->
+  <section class="kart" id="ios">
+    <div class="serit sag"><span>IPHONE</span></div>
+    <p class="not" data-tr="Apple'ın test uygulaması TestFlight ile oynanır. Yüklü değilse önce onu indir."
+       data-en="Played through Apple's TestFlight app. Install it first if you don't have it.">Apple'ın test uygulaması TestFlight ile oynanır. Yüklü değilse önce onu indir.</p>
+    <div class="adim" id="i1">
+      <div class="no"><span>1</span></div>
+      <div class="ic">
+        <div class="baslik" data-tr="TestFlight'ı yükle (yüklüyse atla)" data-en="Install TestFlight (skip if you have it)">TestFlight'ı yükle (yüklüyse atla)</div>
+        <a class="btn ikinci" href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener" data-adim="i1" data-tr="TestFlight'ı indir" data-en="Get TestFlight">TestFlight'ı indir</a>
+      </div>
+    </div>
+    <div class="adim" id="i2">
+      <div class="no"><span>2</span></div>
+      <div class="ic">
+        <div class="baslik" data-tr="Oyunu TestFlight'ta aç" data-en="Open the game in TestFlight">Oyunu TestFlight'ta aç</div>
+        <a class="btn" href="https://testflight.apple.com/join/K9TKwTbW" target="_blank" rel="noopener" data-adim="i2" data-tr="Teste katıl" data-en="Join the test">Teste katıl</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PC -->
+  <section class="kart" id="pc">
+    <div class="serit"><span data-tr="BİLGİSAYAR" data-en="PC">BİLGİSAYAR</span></div>
+    <p class="not" data-tr="itch.io'dan ücretsiz indir, zip'i aç, DedesVillage.exe'yi çalıştır."
+       data-en="Free download on itch.io: unzip and run DedesVillage.exe.">itch.io'dan ücretsiz indir, zip'i aç, DedesVillage.exe'yi çalıştır.</p>
+    <a class="btn buyuk" href="https://dekazogames.itch.io/dedes-village" target="_blank" rel="noopener" data-tr="itch.io'dan indir" data-en="Download on itch.io">itch.io'dan indir</a>
+  </section>
+
+  <div class="diger" id="diger">
+    <span data-tr="Başka cihaz mı?" data-en="Other device?">Başka cihaz mı?</span>
+    <a href="#android" data-goster="android">Android</a>
+    <a href="#ios" data-goster="ios">iPhone</a>
+    <a href="#pc" data-goster="pc" data-tr="Bilgisayar" data-en="PC">Bilgisayar</a>
+  </div>
+
+  <div class="resimler">
+    <img src="../img/01_07_garajda_sialia.jpg" alt="" loading="lazy">
+    <img src="../img/04_08_kahvehane_terasi.jpg" alt="" loading="lazy">
+    <img src="../img/08_14_findik_bahcesi.jpg" alt="" loading="lazy">
+  </div>
+
+  <footer>
+    <span data-tr="Hata ya da fikir:" data-en="Bugs or ideas:">Hata ya da fikir:</span> <a href="https://www.instagram.com/dedesvillagegame/">@dedesvillagegame</a> · <a href="mailto:dekazogames@gmail.com">dekazogames@gmail.com</a><br>
+    <a href="https://zobarkaan.github.io/dedesvillage-gizlilik/" data-tr="Gizlilik" data-en="Privacy">Gizlilik</a> · © 2026 Dekazo Games
+  </footer>
+</div>
+<script>
+(function () {
+  var ua = navigator.userAgent || "";
+  var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  var cihaz = ios ? "ios" : android ? "android" : "pc";
+  var hepsi = ["android", "ios", "pc"];
+  function goster(id) {
+    hepsi.forEach(function (k) { document.getElementById(k).classList.toggle("gizli", k !== id); });
+    document.querySelectorAll("#diger a").forEach(function (a) { a.classList.toggle("gizli", a.getAttribute("data-goster") === id); });
+  }
+  goster(cihaz);
+  document.querySelectorAll("#diger a").forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); goster(a.getAttribute("data-goster")); window.scrollTo({ top: document.getElementById(a.getAttribute("data-goster")).offsetTop - 12, behavior: "smooth" }); });
+  });
+  // basılan adım yeşil olur (geri gelince nerede kaldığı belli)
+  function oku(k) { try { return localStorage.getItem("dv.adim." + k) === "1"; } catch (e) { return false; } }
+  function yaz(k) { try { localStorage.setItem("dv.adim." + k, "1"); } catch (e) {} }
+  document.querySelectorAll("a[data-adim]").forEach(function (a) {
+    var k = a.getAttribute("data-adim");
+    if (oku(k)) document.getElementById(k).classList.add("tamam");
+    a.addEventListener("click", function () { yaz(k); setTimeout(function () { document.getElementById(k).classList.add("tamam"); }, 400); });
+  });
+  // dil: telefon Türkçe değilse İngilizce
+  var dil = (navigator.language || "tr").toLowerCase().indexOf("tr") === 0 ? "tr" : "en";
+  try { var s = localStorage.getItem("dv.dil"); if (s) dil = s; } catch (e) {}
+  function uygula(d) {
+    dil = d; document.documentElement.lang = d;
+    document.querySelectorAll("[data-tr]").forEach(function (el) { el.textContent = el.getAttribute("data-" + d); });
+    document.getElementById("dilBtn").textContent = d === "tr" ? "EN" : "TR";
+    document.title = d === "tr" ? "Dede's Village — Teste katıl" : "Dede's Village — Join the test";
+  }
+  uygula(dil);
+  document.getElementById("dilBtn").addEventListener("click", function () { var d = dil === "tr" ? "en" : "tr"; try { localStorage.setItem("dv.dil", d); } catch (e) {} uygula(d); });
+})();
+</script>
+</body>
+</html>
